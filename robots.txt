@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://songsforyourstory.com/sitemap.xml
