@@ -662,11 +662,10 @@ async function submitOrder(e){
   const d=Object.fromEntries(new FormData(form));
   const plan=d.plan;
 
-  // UPDATE THESE WITH YOUR NEW GRADUATION STRIPE LINKS
   const stripeLinks={
-    'The Milestone':'https://buy.stripe.com/PLACEHOLDER_MILESTONE',
-    'The Legacy':'https://buy.stripe.com/PLACEHOLDER_LEGACY',
-    'The Send-Off':'https://buy.stripe.com/PLACEHOLDER_SENDOFF'
+    'The Milestone':'https://buy.stripe.com/5kQbJ19C4diCaoy5VE1ZS06',
+    'The Legacy':'https://buy.stripe.com/eVq28rcOgemG8gq1Fo1ZS07',
+    'The Send-Off':'https://buy.stripe.com/4gMdR9eWocey0NY6ZI1ZS08'
   };
   const link=stripeLinks[plan];
 
@@ -697,7 +696,7 @@ async function submitOrder(e){
     });
   }catch(err){console.error('Web3Forms failed:',err);}
 
-  if(link&&link.startsWith('https')&&!link.includes('PLACEHOLDER')){
+  if(link&&link.startsWith('https')){
     window.location.href=link+'?prefilled_email='+encodeURIComponent(d.customerEmail)+'&client_reference_id='+encodeURIComponent(d.customerName+'|Graduation|'+d.songFor);
   }else{
     btn.textContent=originalText;btn.disabled=false;
