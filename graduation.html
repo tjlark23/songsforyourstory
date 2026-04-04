@@ -366,30 +366,30 @@ body.has-banner .hero{padding-top:166px}
 
 <!-- Compact playlist -->
 <div class="playlist-section">
-<div class="playlist-header"><span class="playlist-label">&#x1F3B5; More examples from real customers</span></div>
+<div class="playlist-header"><span class="playlist-label">&#x1F3B5; More graduation songs we've made</span></div>
 
-<div class="playlist-item" data-song="bday-megan" onclick="playFromPlaylist('bday-megan',this)">
+<div class="playlist-item" data-song="grad-emma" onclick="playFromPlaylist('grad-emma',this)">
 <button class="playlist-play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></button>
-<div class="playlist-info"><div class="playlist-title">Megan's 30th Birthday</div><div class="playlist-meta">Pop &middot; Birthday</div></div>
-<span class="playlist-dur">3:24</span>
+<div class="playlist-info"><div class="playlist-title">Watch Her Fly (Emma's Song)</div><div class="playlist-meta">Country &middot; Mom to Daughter</div></div>
+<span class="playlist-dur">3:46</span>
 </div>
 
-<div class="playlist-item" data-song="wedding-js" onclick="playFromPlaylist('wedding-js',this)">
+<div class="playlist-item" data-song="grad-jaylen" onclick="playFromPlaylist('grad-jaylen',this)">
 <button class="playlist-play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></button>
-<div class="playlist-info"><div class="playlist-title">Forever Starts Today</div><div class="playlist-meta">Ballad &middot; Wedding</div></div>
-<span class="playlist-dur">3:24</span>
+<div class="playlist-info"><div class="playlist-title">Senior Status (Jaylen's Song)</div><div class="playlist-meta">Hip-Hop &middot; Hype Anthem</div></div>
+<span class="playlist-dur">3:02</span>
 </div>
 
-<div class="playlist-item" data-song="bearcats" onclick="playFromPlaylist('bearcats',this)">
+<div class="playlist-item" data-song="grad-friends" onclick="playFromPlaylist('grad-friends',this)">
 <button class="playlist-play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></button>
-<div class="playlist-info"><div class="playlist-title">Bonita Bearcats</div><div class="playlist-meta">Hip-Hop &middot; Team Hype</div></div>
-<span class="playlist-dur">2:57</span>
+<div class="playlist-info"><div class="playlist-title">The Last Bell (Friend Group)</div><div class="playlist-meta">Indie Folk &middot; Friend Tribute</div></div>
+<span class="playlist-dur">3:23</span>
 </div>
 
-<div class="playlist-item" data-song="retire-bob" onclick="playFromPlaylist('retire-bob',this)">
+<div class="playlist-item" data-song="grad-marcus" onclick="playFromPlaylist('grad-marcus',this)">
 <button class="playlist-play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></button>
-<div class="playlist-info"><div class="playlist-title">Bob's Retirement</div><div class="playlist-meta">Country &middot; Retirement</div></div>
-<span class="playlist-dur">4:27</span>
+<div class="playlist-info"><div class="playlist-title">Built For This (Marcus' Song)</div><div class="playlist-meta">Pop-Rock &middot; Dad to Son</div></div>
+<span class="playlist-dur">4:36</span>
 </div>
 
 </div>
@@ -571,10 +571,10 @@ body.has-banner .hero{padding-top:166px}
 const BASE='https://raw.githubusercontent.com/tjlark23/SFYS-music/main/';
 const songData={
   'grad-connor':{title:"Connor's Graduation",meta:'Graduation \u00B7 Pop',icon:'\u{1F393}',art:'art-graduation',src:BASE+'Homepage/Connor%27s%20Graduation_%20Off%20to%20Clemson.mp3',dur:188},
-  'bday-megan':{title:"Megan's 30th Birthday",meta:'Birthday \u00B7 Pop',icon:'\u{1F382}',art:'art-graduation-warm',src:BASE+'Homepage/Megan%27s%2030th%20Birthday.mp3',dur:204},
-  'wedding-js':{title:'Forever Starts Today',meta:'Wedding \u00B7 Ballad',icon:'\u{1F48D}',art:'art-graduation',src:BASE+'Homepage/Jason%20%26%20Sarah%20-%20Forever%20Starts%20Today%20%28Wedding%29.mp3',dur:204},
-  'bearcats':{title:'Bonita Bearcats',meta:'Team Hype \u00B7 Hip-Hop',icon:'\u{1F3C6}',art:'art-graduation-hype',src:BASE+'Homepage/Bonita%20Bearcats%20-%20CIF%20Champs.mp3',dur:177},
-  'retire-bob':{title:"Bob's Retirement",meta:'Retirement \u00B7 Country',icon:'\u{1F305}',art:'art-graduation',src:BASE+'Homepage/Bob%27s%20Retirement%20-%20Tucson%20Bound.mp3',dur:267}
+  'grad-emma':{title:"Watch Her Fly (Emma's Song)",meta:'Graduation \u00B7 Country',icon:'\u{1F338}',art:'art-graduation-warm',src:BASE+'Graduation/Watch%20Her%20Fly%20%28Emma%27s%20Song%29.mp3',dur:226},
+  'grad-jaylen':{title:"Senior Status (Jaylen's Song)",meta:'Graduation \u00B7 Hip-Hop',icon:'\u{1F525}',art:'art-graduation-hype',src:BASE+'Graduation/Senior%20Status%20%28Jalen%27s%20Song%29.mp3',dur:182},
+  'grad-friends':{title:"The Last Bell (Friend Group)",meta:'Graduation \u00B7 Indie Folk',icon:'\u{1F91D}',art:'art-graduation',src:BASE+'Graduation/The%20Last%20Bell%20%28Friend%20Group%20Song%29.mp3',dur:203},
+  'grad-marcus':{title:"Built For This (Marcus' Song)",meta:'Graduation \u00B7 Pop-Rock',icon:'\u{1F3C8}',art:'art-graduation-hype',src:BASE+'Graduation/Built%20For%20This%20%28Marcus%27%20Song%29.mp3',dur:276}
 };
 
 const audio=new Audio();
