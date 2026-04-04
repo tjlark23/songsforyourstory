@@ -286,49 +286,52 @@ body.has-banner .hero{padding-top:166px}
 .animate-in{opacity:0;transform:translateY(20px);transition:all 0.5s ease}
 .animate-in.visible{opacity:1;transform:translateY(0)}
 
-/* MOBILE: Everything above the fold - headline, CTA, and playable songs visible without scrolling */
+/* MOBILE: Clean, beautiful layout with songs above the fold */
 @media(max-width:768px){
-  .hero-inner{grid-template-columns:1fr;gap:10px;text-align:center}
-  .hero{min-height:auto;padding:70px 16px 20px}
+  .hero-inner{grid-template-columns:1fr;gap:16px;text-align:center}
+  .hero{min-height:auto;padding:80px 20px 28px}
   .hero::before,.hero::after{display:none}
   .hero-badge{display:none}
-  .hero-title{font-size:26px;margin-bottom:6px;line-height:1.1}
-  .hero-subtitle{font-size:13px;margin-bottom:10px;max-width:100%;line-height:1.4}
+  .hero-title{font-size:30px;margin-bottom:8px;line-height:1.1}
+  .hero-title em{display:inline}
+  .hero-subtitle{font-size:15px;margin-bottom:16px;max-width:100%;line-height:1.5}
   .hero-subtitle br{display:none}
-  .hero-actions{justify-content:center;margin-bottom:0}
-  .btn-primary{padding:10px 20px;font-size:14px;width:100%}
+  /* Move CTA below the songs on mobile */
+  .hero-content{display:flex;flex-direction:column}
+  .hero-actions{order:10;margin-top:16px}
+  .btn-primary{padding:14px 24px;font-size:15px;width:100%}
   .hero-proof{display:none}
-  /* Hide featured card on mobile, show compact playlist only */
+  /* Hide the big featured card, show playlist with all songs */
   .demo-card{display:none}
-  .playlist-section{margin-top:0;border-radius:8px}
-  .playlist-header{padding:5px 10px}
-  .playlist-label{font-size:10px;letter-spacing:0.08em}
-  .playlist-item{padding:6px 10px;gap:6px}
-  .playlist-play-btn{width:28px;height:28px;min-width:28px}
-  .playlist-play-btn svg{width:9px;height:9px}
-  .playlist-title{font-size:12px}
-  .playlist-meta{font-size:9px}
-  .playlist-dur{font-size:9px}
+  .hero-demos{margin-top:0;order:5}
+  .playlist-section{margin-top:0;border-radius:12px;border:1px solid var(--border);overflow:hidden}
+  .playlist-header{padding:10px 14px;background:linear-gradient(135deg,var(--grad-purple),var(--grad-violet))}
+  .playlist-label{font-size:11px;letter-spacing:0.08em;color:rgba(255,255,255,0.9)}
+  .playlist-item{padding:10px 14px;gap:10px}
+  .playlist-play-btn{width:36px;height:36px;min-width:36px}
+  .playlist-play-btn svg{width:12px;height:12px}
+  .playlist-title{font-size:14px}
+  .playlist-meta{font-size:11px}
+  .playlist-dur{font-size:11px}
   .mobile-connor-playlist{display:flex!important}
-  .hero-demos{margin-top:0}
-  /* Rest of sections */
-  .guarantee-section{padding:28px 16px}
-  .guarantee-stamp{width:48px;height:48px;font-size:22px;margin-bottom:10px}
-  .guarantee-title{font-size:20px}
-  .guarantee-desc{font-size:13px}
-  .section{padding:48px 16px}
+  /* Sections */
+  .guarantee-section{padding:36px 20px}
+  .guarantee-stamp{width:56px;height:56px;font-size:24px;margin-bottom:12px}
+  .guarantee-title{font-size:22px}
+  .guarantee-desc{font-size:14px}
+  .section{padding:56px 20px}
   .section-header{margin-bottom:40px}
-  .emotion-grid{grid-template-columns:1fr;gap:12px}
-  .emotion-card{padding:20px 16px}
-  .emotion-icon{font-size:32px;margin-bottom:8px}
-  .emotion-title{font-size:18px}
-  .emotion-desc{font-size:13px}
-  .steps-grid{grid-template-columns:1fr 1fr;gap:12px}
-  .step-card{padding:20px 14px}
+  .emotion-grid{grid-template-columns:1fr;gap:14px}
+  .emotion-card{padding:28px 20px}
+  .emotion-icon{font-size:36px;margin-bottom:10px}
+  .emotion-title{font-size:20px}
+  .emotion-desc{font-size:14px}
+  .steps-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .step-card{padding:24px 16px}
   .step-arrow{display:none}
-  .uses-grid{grid-template-columns:1fr;gap:10px}
-  .use-card{padding:16px}
-  .pricing-grid{grid-template-columns:1fr;max-width:360px;margin:0 auto}
+  .uses-grid{grid-template-columns:1fr;gap:12px}
+  .use-card{padding:20px}
+  .pricing-grid{grid-template-columns:1fr;max-width:380px;margin:0 auto}
   .form-row{grid-template-columns:1fr}
   .footer-inner{flex-direction:column;gap:20px;text-align:center}
   .footer-links{flex-wrap:wrap;justify-content:center}
@@ -336,20 +339,19 @@ body.has-banner .hero{padding-top:166px}
   .mobile-menu-btn{display:block}
   .audio-player-info{min-width:auto}
   .audio-progress{display:none}
-  .urgency-banner{padding:6px 10px;gap:6px}
-  .urgency-banner-text{font-size:11px}
-  .urgency-banner-cta{font-size:10px;padding:4px 10px}
-  body.has-banner .hero{padding-top:100px}
-  body.has-banner .nav{top:34px}
+  .urgency-banner{padding:8px 16px;gap:8px}
+  .urgency-banner-text{font-size:12px}
+  .urgency-banner-cta{font-size:11px;padding:5px 14px}
+  body.has-banner .hero{padding-top:120px}
+  body.has-banner .nav{top:38px}
 }
 /* Hide mobile-connor-playlist on desktop */
 .mobile-connor-playlist{display:none}
 @media(max-width:480px){
   .steps-grid{grid-template-columns:1fr}
-  .hero-title{font-size:24px}
-  .hero-subtitle{font-size:12px;margin-bottom:8px}
-  .btn-primary{padding:10px 16px;font-size:13px}
-  body.has-banner .hero{padding-top:94px}
+  .hero{padding:72px 16px 24px}
+  .hero-title{font-size:26px}
+  body.has-banner .hero{padding-top:110px}
 }
 </style>
 </head>
