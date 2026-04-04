@@ -53,15 +53,14 @@
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--white);color:var(--text-primary);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* URGENCY BANNER */
-.urgency-banner{position:fixed;top:0;left:0;right:0;z-index:1001;background:linear-gradient(135deg,var(--grad-purple),var(--grad-violet));padding:12px 32px;text-align:center;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+/* URGENCY BANNER - sits below the nav, not above */
+.urgency-banner{position:fixed;top:54px;left:0;right:0;z-index:999;background:linear-gradient(135deg,var(--grad-purple),var(--grad-violet));padding:10px 32px;text-align:center;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
 .urgency-banner-text{font-size:15px;color:var(--white);font-weight:500}
 .urgency-banner-text strong{color:#FFD700;font-weight:700}
 .urgency-banner-cta{display:inline-flex;align-items:center;gap:6px;background:#FFD700;color:#1a1a2e;padding:6px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;text-transform:uppercase;letter-spacing:0.04em}
 .urgency-banner-cta:hover{background:#fff;transform:translateY(-1px)}
 .urgency-banner-close{background:none;border:none;color:rgba(255,255,255,0.4);font-size:18px;cursor:pointer;padding:0 4px;margin-left:8px;transition:color 0.2s}
 .urgency-banner-close:hover{color:#fff}
-body.has-banner .nav{top:46px}
 body.has-banner .hero{padding-top:166px}
 
 /* NAV */
@@ -121,6 +120,23 @@ body.has-banner .hero{padding-top:166px}
 .mini-progress-track{width:100%;height:3px;background:var(--border);border-radius:2px;position:relative;overflow:hidden}
 .mini-progress-fill{height:100%;background:var(--grad-purple);border-radius:2px;width:0%;transition:width 0.1s linear}
 .mini-time{font-size:10px;color:var(--text-muted);font-variant-numeric:tabular-nums;min-width:28px;text-align:right}
+
+/* COMPACT PLAYLIST */
+.playlist-section{margin-top:16px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.playlist-header{padding:10px 14px;border-bottom:1px solid var(--border-light)}
+.playlist-label{font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em}
+.playlist-item{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;transition:background 0.15s;border-bottom:1px solid var(--border-light)}
+.playlist-item:last-child{border-bottom:none}
+.playlist-item:hover{background:var(--off-white)}
+.playlist-item.is-active{background:rgba(102,126,234,0.06)}
+.playlist-play-btn{width:28px;height:28px;background:var(--navy);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:all 0.15s}
+.playlist-play-btn:hover{background:var(--grad-purple)}
+.playlist-play-btn svg{width:10px;height:10px;fill:white;margin-left:1.5px}
+.playlist-item.is-active .playlist-play-btn{background:var(--grad-purple)}
+.playlist-info{flex:1;min-width:0}
+.playlist-title{font-weight:600;font-size:13px;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.playlist-meta{font-size:11px;color:var(--text-muted)}
+.playlist-dur{font-size:11px;color:var(--text-muted);font-variant-numeric:tabular-nums;flex-shrink:0}
 
 /* SECTIONS */
 .section{padding:100px 32px;position:relative}
@@ -294,7 +310,7 @@ body.has-banner .hero{padding-top:166px}
 
 <!-- URGENCY BANNER -->
 <div class="urgency-banner" id="urgencyBanner">
-<span class="urgency-banner-text"><span class="hero-badge-pulse"></span> <strong>Graduation Special:</strong> 50% off all packages. First 20 orders only.</span>
+<span class="urgency-banner-text"><span class="hero-badge-pulse"></span> <strong>Early Adopter Pricing:</strong> 50% off all packages. Only <strong>14 spots</strong> remaining.</span>
 <a href="#pricing" class="urgency-banner-cta">Claim Your Spot &darr;</a>
 <button class="urgency-banner-close" onclick="closeBanner()">&#x2715;</button>
 </div>
@@ -322,7 +338,7 @@ body.has-banner .hero{padding-top:166px}
 <section class="hero" aria-label="Custom Graduation Songs">
 <div class="hero-inner">
 <div class="hero-content">
-<div class="hero-badge"><span class="hero-badge-pulse"></span> Class of 2026 Special</div>
+<div class="hero-badge"><span class="hero-badge-pulse"></span> Early Adopter Pricing: 50% Off</div>
 <h1 class="hero-title">The graduation gift they'll <em>replay forever</em></h1>
 <p class="hero-subtitle">A custom, radio-quality song with your senior's name, inside jokes, and the memories that made these years unforgettable. Delivered as fast as 24 hours.</p>
 <div class="hero-actions">
@@ -336,8 +352,7 @@ body.has-banner .hero{padding-top:166px}
 </div>
 </div>
 <div class="hero-demos" id="examples">
-<div class="hero-demos-grid">
-
+<!-- Featured demo card -->
 <div class="demo-card" data-song="grad-connor">
 <div class="demo-card-art"><div class="demo-card-art-bg art-graduation"></div><div class="demo-card-icon">&#x1F393;</div></div>
 <div class="demo-card-body">
@@ -349,30 +364,33 @@ body.has-banner .hero{padding-top:166px}
 <span class="mini-time">3:08</span>
 </div></div></div>
 
-<!-- PLACEHOLDER: Add 2 more graduation demos once generated in Suno -->
-<!--
-<div class="demo-card" data-song="grad-demo-2">
-<div class="demo-card-art"><div class="demo-card-art-bg art-graduation-warm"></div><div class="demo-card-icon">&#x1F338;</div></div>
-<div class="demo-card-body">
-<div class="demo-card-header"><div class="demo-card-title">Demo: Emotional Ballad</div><span class="demo-card-genre">Ballad</span></div>
-<div class="demo-card-meta">Parent to Daughter</div>
-<div class="mini-player">
-<button class="mini-play-btn" onclick="playFromCard('grad-demo-2',this)"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></button>
-<div class="mini-progress" onclick="seekMini(event)"><div class="mini-progress-track"><div class="mini-progress-fill"></div></div></div>
-<span class="mini-time">3:30</span>
-</div></div></div>
+<!-- Compact playlist -->
+<div class="playlist-section">
+<div class="playlist-header"><span class="playlist-label">&#x1F3B5; More examples from real customers</span></div>
 
-<div class="demo-card" data-song="grad-demo-3">
-<div class="demo-card-art"><div class="demo-card-art-bg art-graduation-hype"></div><div class="demo-card-icon">&#x1F525;</div></div>
-<div class="demo-card-body">
-<div class="demo-card-header"><div class="demo-card-title">Demo: Hype Anthem</div><span class="demo-card-genre">Hip-Hop</span></div>
-<div class="demo-card-meta">Senior Class Send-Off</div>
-<div class="mini-player">
-<button class="mini-play-btn" onclick="playFromCard('grad-demo-3',this)"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></button>
-<div class="mini-progress" onclick="seekMini(event)"><div class="mini-progress-track"><div class="mini-progress-fill"></div></div></div>
-<span class="mini-time">2:45</span>
-</div></div></div>
--->
+<div class="playlist-item" data-song="bday-megan" onclick="playFromPlaylist('bday-megan',this)">
+<button class="playlist-play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></button>
+<div class="playlist-info"><div class="playlist-title">Megan's 30th Birthday</div><div class="playlist-meta">Pop &middot; Birthday</div></div>
+<span class="playlist-dur">3:24</span>
+</div>
+
+<div class="playlist-item" data-song="wedding-js" onclick="playFromPlaylist('wedding-js',this)">
+<button class="playlist-play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></button>
+<div class="playlist-info"><div class="playlist-title">Forever Starts Today</div><div class="playlist-meta">Ballad &middot; Wedding</div></div>
+<span class="playlist-dur">3:24</span>
+</div>
+
+<div class="playlist-item" data-song="bearcats" onclick="playFromPlaylist('bearcats',this)">
+<button class="playlist-play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></button>
+<div class="playlist-info"><div class="playlist-title">Bonita Bearcats</div><div class="playlist-meta">Hip-Hop &middot; Team Hype</div></div>
+<span class="playlist-dur">2:57</span>
+</div>
+
+<div class="playlist-item" data-song="retire-bob" onclick="playFromPlaylist('retire-bob',this)">
+<button class="playlist-play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></button>
+<div class="playlist-info"><div class="playlist-title">Bob's Retirement</div><div class="playlist-meta">Country &middot; Retirement</div></div>
+<span class="playlist-dur">4:27</span>
+</div>
 
 </div>
 </div>
@@ -418,7 +436,7 @@ body.has-banner .hero{padding-top:166px}
 <!-- PRICING -->
 <section class="section section-white" id="pricing" aria-label="Graduation Song Pricing">
 <div class="section-header"><div class="section-label">Pricing</div><h2 class="section-title">Choose the perfect send-off</h2><p class="section-subtitle">Every package gets a fully custom, radio-quality graduation song. Pick the one that fits.</p></div>
-<div class="pricing-section-banner">&#x1F393; Graduation Special: <strong>50% off for the first 20 orders</strong></div>
+<div class="pricing-section-banner">&#x26A1; Early Adopter Pricing: <strong>50% off for the first 14 orders</strong></div>
 <div class="pricing-grid">
 
 <div class="pricing-card">
@@ -552,10 +570,11 @@ body.has-banner .hero{padding-top:166px}
 <script>
 const BASE='https://raw.githubusercontent.com/tjlark23/SFYS-music/main/';
 const songData={
-  'grad-connor':{title:"Connor's Graduation",meta:'Graduation \u00B7 Pop',icon:'\u{1F393}',art:'art-graduation',src:BASE+'Homepage/Connor%27s%20Graduation_%20Off%20to%20Clemson.mp3',dur:188}
-  // Add more graduation demos here as they're generated:
-  // 'grad-demo-2':{title:"Demo Title",meta:'Graduation \u00B7 Ballad',icon:'\u{1F338}',art:'art-graduation-warm',src:BASE+'Graduation/filename.mp3',dur:210},
-  // 'grad-demo-3':{title:"Demo Title",meta:'Graduation \u00B7 Hip-Hop',icon:'\u{1F525}',art:'art-graduation-hype',src:BASE+'Graduation/filename.mp3',dur:165},
+  'grad-connor':{title:"Connor's Graduation",meta:'Graduation \u00B7 Pop',icon:'\u{1F393}',art:'art-graduation',src:BASE+'Homepage/Connor%27s%20Graduation_%20Off%20to%20Clemson.mp3',dur:188},
+  'bday-megan':{title:"Megan's 30th Birthday",meta:'Birthday \u00B7 Pop',icon:'\u{1F382}',art:'art-graduation-warm',src:BASE+'Homepage/Megan%27s%2030th%20Birthday.mp3',dur:204},
+  'wedding-js':{title:'Forever Starts Today',meta:'Wedding \u00B7 Ballad',icon:'\u{1F48D}',art:'art-graduation',src:BASE+'Homepage/Jason%20%26%20Sarah%20-%20Forever%20Starts%20Today%20%28Wedding%29.mp3',dur:204},
+  'bearcats':{title:'Bonita Bearcats',meta:'Team Hype \u00B7 Hip-Hop',icon:'\u{1F3C6}',art:'art-graduation-hype',src:BASE+'Homepage/Bonita%20Bearcats%20-%20CIF%20Champs.mp3',dur:177},
+  'retire-bob':{title:"Bob's Retirement",meta:'Retirement \u00B7 Country',icon:'\u{1F305}',art:'art-graduation',src:BASE+'Homepage/Bob%27s%20Retirement%20-%20Tucson%20Bound.mp3',dur:267}
 };
 
 const audio=new Audio();
@@ -578,6 +597,23 @@ function playFromCard(songId,btnEl){
   if(currentSongId===songId&&!isPlaying){audio.play();isPlaying=true;activeMiniBtn=btnEl;activeMiniBar=btnEl.closest('.mini-player').querySelector('.mini-progress-fill');updateAllUI();return;}
   const s=songData[songId];if(!s)return;
   currentSongId=songId;activeMiniBtn=btnEl;activeMiniBar=btnEl.closest('.mini-player').querySelector('.mini-progress-fill');
+  audio.src=s.src;audio.play();isPlaying=true;
+  document.getElementById('playerTitle').textContent=s.title;
+  document.getElementById('playerMeta').textContent=s.meta;
+  document.getElementById('playerArt').textContent=s.icon;
+  document.getElementById('playerArt').className='audio-player-art '+s.art;
+  document.getElementById('audioPlayer').classList.add('active');
+  document.getElementById('playerDuration').textContent=formatTime(s.dur);
+  updateAllUI();
+}
+function playFromPlaylist(songId,itemEl){
+  resetMinis();
+  document.querySelectorAll('.playlist-item').forEach(i=>i.classList.remove('is-active'));
+  if(currentSongId===songId&&isPlaying){audio.pause();isPlaying=false;updateAllUI();return;}
+  if(currentSongId===songId&&!isPlaying){audio.play();isPlaying=true;itemEl.classList.add('is-active');updateAllUI();return;}
+  const s=songData[songId];if(!s)return;
+  currentSongId=songId;
+  itemEl.classList.add('is-active');
   audio.src=s.src;audio.play();isPlaying=true;
   document.getElementById('playerTitle').textContent=s.title;
   document.getElementById('playerMeta').textContent=s.meta;
