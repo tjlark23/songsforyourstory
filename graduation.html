@@ -286,12 +286,31 @@ body.has-banner .hero{padding-top:166px}
 .animate-in{opacity:0;transform:translateY(20px);transition:all 0.5s ease}
 .animate-in.visible{opacity:1;transform:translateY(0)}
 
-/* RESPONSIVE */
+/* MOBILE: Everything above the fold - headline, subtitle, CTA, and playable songs */
 @media(max-width:768px){
-  .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}
-  .hero-subtitle{margin-left:auto;margin-right:auto}
-  .hero-actions{justify-content:center}
-  .hero-proof{justify-content:center;flex-wrap:wrap;gap:20px}
+  .hero-inner{grid-template-columns:1fr;gap:20px;text-align:center}
+  .hero{min-height:auto;padding:90px 20px 40px}
+  .hero-badge{display:none}
+  .hero-title{font-size:32px;margin-bottom:12px}
+  .hero-subtitle{font-size:15px;margin-bottom:20px;max-width:100%}
+  .hero-subtitle br{display:none}
+  .hero-actions{justify-content:center;margin-bottom:0}
+  .btn-primary{padding:14px 28px;font-size:15px}
+  .hero-proof{display:none}
+  /* Hide featured card on mobile, show only playlist */
+  .demo-card{display:none}
+  .playlist-section{margin-top:0;border-radius:10px}
+  .playlist-header{padding:8px 12px}
+  .playlist-label{font-size:11px}
+  .playlist-item{padding:8px 12px;gap:8px}
+  .playlist-play-btn{width:32px;height:32px}
+  .playlist-play-btn svg{width:11px;height:11px}
+  .playlist-title{font-size:13px}
+  .playlist-meta{font-size:10px}
+  .playlist-dur{font-size:10px}
+  /* Add Connor as first playlist item via mobile-only element */
+  .mobile-connor-playlist{display:block!important}
+  .hero-demos{margin-top:0}
   .emotion-grid{grid-template-columns:1fr}
   .steps-grid{grid-template-columns:1fr 1fr;gap:16px}
   .step-arrow{display:none}
@@ -305,13 +324,23 @@ body.has-banner .hero{padding-top:166px}
   .audio-player-info{min-width:auto}
   .audio-progress{display:none}
   .urgency-banner{padding:10px 16px}
-  .urgency-banner-text{font-size:13px}
-  body.has-banner .hero{padding-top:150px}
+  .urgency-banner-text{font-size:12px}
+  .urgency-banner-cta{font-size:11px;padding:5px 12px}
+  body.has-banner .hero{padding-top:110px}
+  body.has-banner .nav{top:40px}
+  .guarantee-section{padding:32px 20px}
+  .guarantee-stamp{width:56px;height:56px;font-size:24px}
+  .guarantee-title{font-size:22px}
+  .guarantee-desc{font-size:14px}
+  .section{padding:60px 20px}
 }
+/* Hide mobile-connor-playlist on desktop */
+.mobile-connor-playlist{display:none}
 @media(max-width:480px){
   .steps-grid{grid-template-columns:1fr}
-  .hero{padding:120px 20px 60px}
-  .section{padding:60px 20px}
+  .hero-title{font-size:28px}
+  .hero-subtitle{font-size:14px;margin-bottom:16px}
+  body.has-banner .hero{padding-top:100px}
 }
 </style>
 </head>
@@ -350,7 +379,7 @@ body.has-banner .hero{padding-top:166px}
 <div class="hero-content">
 <div class="hero-badge"><span class="hero-badge-pulse"></span> &#x1F393; 2026 Graduation Season</div>
 <h1 class="hero-title">The graduation gift they'll <em>replay forever</em></h1>
-<p class="hero-subtitle">A custom, radio-quality song with your senior's name, inside jokes, and the memories that made these years unforgettable. Delivered as fast as 24 hours.</p>
+<p class="hero-subtitle">A custom song with your senior's name, memories, and inside jokes. Radio-quality. Delivered in 24 hours.</p>
 <div class="hero-actions">
 <a href="#pricing" class="btn-primary">&#x1F393;&nbsp; Create Their Song</a>
 </div>
@@ -375,7 +404,13 @@ body.has-banner .hero{padding-top:166px}
 
 <!-- Compact playlist -->
 <div class="playlist-section">
-<div class="playlist-header"><span class="playlist-label">&#x1F3B5; More graduation songs we've made</span></div>
+<div class="playlist-header"><span class="playlist-label">&#x1F3B5; Listen to graduation songs we've made</span></div>
+
+<div class="playlist-item mobile-connor-playlist" data-song="grad-connor" onclick="playFromPlaylist('grad-connor',this)">
+<button class="playlist-play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></button>
+<div class="playlist-info"><div class="playlist-title">Connor's Graduation</div><div class="playlist-meta">Pop &middot; Off to Clemson</div></div>
+<span class="playlist-dur">3:08</span>
+</div>
 
 <div class="playlist-item" data-song="grad-emma" onclick="playFromPlaylist('grad-emma',this)">
 <button class="playlist-play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></button>
