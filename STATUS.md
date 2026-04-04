@@ -9,17 +9,18 @@
 - Working: Full site live with audio players, Stripe payments, Web3Forms contact/order forms
 - Working: SEO optimized per SEO Bible (canonical, OG tags, Twitter Card, JSON-LD @graph, semantic HTML, aria-labels)
 - Working: robots.txt and sitemap.xml
-- NEW: graduation.html landing page ready (needs Stripe links + additional demo songs + deploy)
+- NEW: graduation.html landing page with all 5 demo songs wired up, ready for Stripe links + deploy
 
 ## Last Session (2026-04-04)
 - Built graduation.html landing page for /graduation funnel
 - Graduation-specific pricing: The Milestone ($49), The Legacy ($149), The Send-Off ($199) with 50% off anchor pricing
 - Graduation-specific order form with school, next step, graduation date fields
 - Full SEO: JSON-LD with FAQPage schema, OG tags, canonical URL, semantic HTML
-- Design matches main site (Instrument Serif + DM Sans, coral/navy palette) with purple graduation accent
-- Audio player wired to existing Connor's Graduation demo from SFYS-music repo
-- Placeholder spots for 2 additional graduation demo songs
-- Stripe payment links need to be created and inserted (search for PLACEHOLDER in graduation.html)
+- Design matches main site with purple graduation accent, early adopter urgency framing
+- Featured Connor demo card + compact playlist with 4 new graduation songs (Emma/country, Jaylen/hip-hop, Friends/indie-folk, Marcus/pop-rock)
+- All 5 songs wired to SFYS-music repo Graduation folder with correct durations
+- Updated sitemap.xml to include /graduation
+- Stripe payment links still need to be created and inserted (search for PLACEHOLDER in graduation.html)
 
 ## Previous Session (2026-03-10)
 - Applied SEO-only backend fixes to index.html (zero visual changes)
@@ -34,16 +35,13 @@
 - Cloudflare Pages deployment via wrangler direct upload
 
 ## Next Steps
-- [ ] TJ: Create 3 new Stripe payment links for graduation tiers ($49, $149, $199) and update graduation.html
-- [ ] Generate 2 more graduation demo songs in Suno (emotional ballad + hype anthem)
-- [ ] Upload demo songs to tjlark23/SFYS-music repo and wire into graduation.html
-- [ ] Deploy graduation.html to Cloudflare Pages
-- [ ] Update sitemap.xml to include /graduation
-- [ ] Add "Graduation Songs" link to main site nav
-- [ ] Replace og:image placeholder with real branded 1200x630 graduation image
+- [ ] TJ: Create 3 Stripe payment links ($49, $149, $199) and replace PLACEHOLDER URLs in graduation.html
+- [ ] Deploy all files to Cloudflare Pages (graduation.html + updated sitemap.xml)
+- [ ] Add "Graduation Songs" link to main site nav (index.html)
+- [ ] Replace og:image placeholders with real branded 1200x630 images
+- [ ] Set up Meta ads campaign for graduation page
 - [ ] Apply same SEO fixes to showcase.html
 - [ ] Consider adding /christian subpage (see one-pager doc)
-- [ ] Set up Meta ads campaign for graduation page
 
 ## Known Issues
 - og:image currently uses placehold.co placeholder
