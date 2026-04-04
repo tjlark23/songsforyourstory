@@ -35,12 +35,8 @@
 - Cloudflare Pages deployment via wrangler direct upload
 
 ## Next Steps
-- [ ] TJ: Create 3 Stripe payment links ($49, $149, $199) and replace PLACEHOLDER URLs in graduation.html
-- [ ] Deploy all files to Cloudflare Pages (graduation.html + updated sitemap.xml)
-- [ ] Add "Graduation Songs" link to main site nav (index.html)
-- [ ] Replace og:image placeholders with real branded 1200x630 images
+- [ ] Deploy latest changes (OG images, graduation nav link, Stripe links)
 - [ ] Set up Meta ads campaign for graduation page
-- [ ] Apply same SEO fixes to showcase.html
 - [ ] Consider adding /christian subpage (see one-pager doc)
 
 ## Known Issues
