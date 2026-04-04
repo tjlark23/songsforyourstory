@@ -101,6 +101,9 @@ body.has-banner .hero{padding-top:166px}
 .demo-card:hover{border-color:var(--grad-purple);box-shadow:var(--shadow-hover);transform:translateY(-3px)}
 .demo-card-art{width:100%;aspect-ratio:16/6;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .demo-card-art-bg{position:absolute;inset:0;opacity:0.9}
+.demo-card-art-overlay{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:4px}
+.demo-art-cap{font-size:40px;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.3))}
+.demo-art-label{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.9);background:rgba(0,0,0,0.3);padding:3px 10px;border-radius:4px}
 .art-graduation{background:linear-gradient(135deg,#667eea,#764ba2)}
 .art-graduation-warm{background:linear-gradient(135deg,#f093fb,#f5576c)}
 .art-graduation-hype{background:linear-gradient(135deg,#4facfe,#00f2fe)}
@@ -229,9 +232,12 @@ body.has-banner .hero{padding-top:166px}
 .btn-white{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--navy);padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;font-family:var(--font-body)}
 .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,255,255,0.2)}
 
-/* GUARANTEE */
-.guarantee-bar{text-align:center;padding:20px 32px;background:rgba(102,126,234,0.06);border-top:1px solid rgba(102,126,234,0.1);border-bottom:1px solid rgba(102,126,234,0.1)}
-.guarantee-bar p{font-size:14px;color:var(--text-secondary)}.guarantee-bar strong{color:var(--grad-purple)}
+/* GUARANTEE - Big and bold */
+.guarantee-section{text-align:center;padding:48px 32px;background:var(--white);border-top:1px solid var(--border)}
+.guarantee-inner{max-width:600px;margin:0 auto}
+.guarantee-stamp{display:inline-flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,rgba(102,126,234,0.1),rgba(118,75,162,0.1));border:2px solid rgba(102,126,234,0.2);margin-bottom:16px;font-size:32px}
+.guarantee-title{font-family:var(--font-display);font-size:clamp(24px,3vw,32px);color:var(--text-primary);margin-bottom:8px}
+.guarantee-desc{font-size:16px;color:var(--text-secondary);line-height:1.6}
 
 /* FOOTER */
 .footer{background:var(--warm-bg);border-top:1px solid var(--border);padding:48px 32px}
@@ -310,7 +316,7 @@ body.has-banner .hero{padding-top:166px}
 
 <!-- URGENCY BANNER -->
 <div class="urgency-banner" id="urgencyBanner">
-<span class="urgency-banner-text"><span class="hero-badge-pulse"></span> <strong>Early Adopter Pricing:</strong> 50% off all packages. Only <strong>14 spots</strong> remaining.</span>
+<span class="urgency-banner-text"><span class="hero-badge-pulse"></span> <strong>Limited Offer:</strong> 50% off all packages for the <strong>next 14 orders</strong>.</span>
 <a href="#pricing" class="urgency-banner-cta">Claim Your Spot &darr;</a>
 <button class="urgency-banner-close" onclick="closeBanner()">&#x2715;</button>
 </div>
@@ -338,12 +344,11 @@ body.has-banner .hero{padding-top:166px}
 <section class="hero" aria-label="Custom Graduation Songs">
 <div class="hero-inner">
 <div class="hero-content">
-<div class="hero-badge"><span class="hero-badge-pulse"></span> Early Adopter Pricing: 50% Off</div>
+<div class="hero-badge"><span class="hero-badge-pulse"></span> &#x1F393; 2026 Graduation Season</div>
 <h1 class="hero-title">The graduation gift they'll <em>replay forever</em></h1>
 <p class="hero-subtitle">A custom, radio-quality song with your senior's name, inside jokes, and the memories that made these years unforgettable. Delivered as fast as 24 hours.</p>
 <div class="hero-actions">
 <a href="#pricing" class="btn-primary">&#x1F393;&nbsp; Create Their Song</a>
-<a href="#examples" class="btn-secondary">&#x1F3B5;&nbsp; Hear Examples</a>
 </div>
 <div class="hero-proof">
 <div class="hero-proof-item"><span class="hero-proof-icon">&#9733;</span> Radio-quality production</div>
@@ -354,7 +359,7 @@ body.has-banner .hero{padding-top:166px}
 <div class="hero-demos" id="examples">
 <!-- Featured demo card -->
 <div class="demo-card" data-song="grad-connor">
-<div class="demo-card-art"><div class="demo-card-art-bg art-graduation"></div><div class="demo-card-icon">&#x1F393;</div></div>
+<div class="demo-card-art"><div class="demo-card-art-bg art-graduation"></div><div class="demo-card-art-overlay"><span class="demo-art-cap">&#x1F393;</span><span class="demo-art-label">LISTEN NOW</span></div></div>
 <div class="demo-card-body">
 <div class="demo-card-header"><div class="demo-card-title">Connor's Graduation</div><span class="demo-card-genre">Pop</span></div>
 <div class="demo-card-meta">Off to Clemson</div>
@@ -397,7 +402,13 @@ body.has-banner .hero{padding-top:166px}
 </div>
 </section>
 
-<div class="guarantee-bar"><p>&#x1F6E1;&#xFE0F; <strong>100% Satisfaction Guarantee</strong> &mdash; Love your song or we'll remake it until you do.</p></div>
+<section class="guarantee-section" aria-label="Satisfaction Guarantee">
+<div class="guarantee-inner">
+<div class="guarantee-stamp">&#x1F6E1;&#xFE0F;</div>
+<h2 class="guarantee-title">We'll remake it until you love it.</h2>
+<p class="guarantee-desc">Every package includes revisions. If the song doesn't capture your graduate's story perfectly, we'll keep working until it does. No questions asked. Your satisfaction is the only outcome we accept.</p>
+</div>
+</section>
 
 <!-- EMOTIONAL HOOKS -->
 <section class="section section-white" aria-label="Why a Custom Graduation Song">
@@ -436,7 +447,7 @@ body.has-banner .hero{padding-top:166px}
 <!-- PRICING -->
 <section class="section section-white" id="pricing" aria-label="Graduation Song Pricing">
 <div class="section-header"><div class="section-label">Pricing</div><h2 class="section-title">Choose the perfect send-off</h2><p class="section-subtitle">Every package gets a fully custom, radio-quality graduation song. Pick the one that fits.</p></div>
-<div class="pricing-section-banner">&#x26A1; Early Adopter Pricing: <strong>50% off for the first 14 orders</strong></div>
+<div class="pricing-section-banner">&#x26A1; Limited Offer: <strong>50% off for the next 14 orders</strong></div>
 <div class="pricing-grid">
 
 <div class="pricing-card">
