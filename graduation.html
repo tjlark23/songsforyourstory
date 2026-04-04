@@ -53,14 +53,15 @@
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--white);color:var(--text-primary);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* URGENCY BANNER - sits below the nav, not above */
-.urgency-banner{position:fixed;top:54px;left:0;right:0;z-index:999;background:linear-gradient(135deg,var(--grad-purple),var(--grad-violet));padding:10px 32px;text-align:center;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+/* URGENCY BANNER - matches main site pattern exactly */
+.urgency-banner{position:fixed;top:0;left:0;right:0;z-index:1001;background:linear-gradient(135deg,var(--grad-purple),var(--grad-violet));padding:12px 32px;text-align:center;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
 .urgency-banner-text{font-size:15px;color:var(--white);font-weight:500}
 .urgency-banner-text strong{color:#FFD700;font-weight:700}
 .urgency-banner-cta{display:inline-flex;align-items:center;gap:6px;background:#FFD700;color:#1a1a2e;padding:6px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;text-transform:uppercase;letter-spacing:0.04em}
 .urgency-banner-cta:hover{background:#fff;transform:translateY(-1px)}
 .urgency-banner-close{background:none;border:none;color:rgba(255,255,255,0.4);font-size:18px;cursor:pointer;padding:0 4px;margin-left:8px;transition:color 0.2s}
 .urgency-banner-close:hover{color:#fff}
+body.has-banner .nav{top:46px}
 body.has-banner .hero{padding-top:166px}
 
 /* NAV */
@@ -99,11 +100,12 @@ body.has-banner .hero{padding-top:166px}
 .hero-demos-grid{display:grid;gap:16px}
 .demo-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all 0.3s}
 .demo-card:hover{border-color:var(--grad-purple);box-shadow:var(--shadow-hover);transform:translateY(-3px)}
-.demo-card-art{width:100%;aspect-ratio:16/6;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.demo-card-art{width:100%;aspect-ratio:16/8;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .demo-card-art-bg{position:absolute;inset:0;opacity:0.9}
-.demo-card-art-overlay{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:4px}
-.demo-art-cap{font-size:40px;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.3))}
-.demo-art-label{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.9);background:rgba(0,0,0,0.3);padding:3px 10px;border-radius:4px}
+.demo-card-art-overlay{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.demo-art-cap{font-size:56px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));line-height:1}
+.demo-art-title{font-family:var(--font-display);font-size:18px;color:white;text-shadow:0 2px 8px rgba(0,0,0,0.4);letter-spacing:-0.01em}
+.demo-art-sub{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.8)}
 .art-graduation{background:linear-gradient(135deg,#667eea,#764ba2)}
 .art-graduation-warm{background:linear-gradient(135deg,#f093fb,#f5576c)}
 .art-graduation-hype{background:linear-gradient(135deg,#4facfe,#00f2fe)}
@@ -304,6 +306,7 @@ body.has-banner .hero{padding-top:166px}
   .audio-progress{display:none}
   .urgency-banner{padding:10px 16px}
   .urgency-banner-text{font-size:13px}
+  body.has-banner .hero{padding-top:150px}
 }
 @media(max-width:480px){
   .steps-grid{grid-template-columns:1fr}
@@ -359,7 +362,7 @@ body.has-banner .hero{padding-top:166px}
 <div class="hero-demos" id="examples">
 <!-- Featured demo card -->
 <div class="demo-card" data-song="grad-connor">
-<div class="demo-card-art"><div class="demo-card-art-bg art-graduation"></div><div class="demo-card-art-overlay"><span class="demo-art-cap">&#x1F393;</span><span class="demo-art-label">LISTEN NOW</span></div></div>
+<div class="demo-card-art"><div class="demo-card-art-bg art-graduation"></div><div class="demo-card-art-overlay"><span class="demo-art-cap">&#x1F393;</span><span class="demo-art-title">Connor's Graduation</span><span class="demo-art-sub">Off to Clemson</span></div></div>
 <div class="demo-card-body">
 <div class="demo-card-header"><div class="demo-card-title">Connor's Graduation</div><span class="demo-card-genre">Pop</span></div>
 <div class="demo-card-meta">Off to Clemson</div>
