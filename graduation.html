@@ -54,15 +54,15 @@
 body{font-family:var(--font-body);background:var(--white);color:var(--text-primary);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* URGENCY BANNER - matches main site pattern exactly */
-.urgency-banner{position:fixed;top:0;left:0;right:0;z-index:1001;background:linear-gradient(135deg,var(--grad-purple),var(--grad-violet));padding:12px 32px;text-align:center;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
-.urgency-banner-text{font-size:15px;color:var(--white);font-weight:500}
+.urgency-banner{position:fixed;top:0;left:0;right:0;z-index:1001;background:linear-gradient(135deg,var(--grad-purple),var(--grad-violet));padding:8px 32px;text-align:center;display:flex;align-items:center;justify-content:center;gap:12px}
+.urgency-banner-text{font-size:14px;color:var(--white);font-weight:500}
 .urgency-banner-text strong{color:#FFD700;font-weight:700}
 .urgency-banner-cta{display:inline-flex;align-items:center;gap:6px;background:#FFD700;color:#1a1a2e;padding:6px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;text-transform:uppercase;letter-spacing:0.04em}
 .urgency-banner-cta:hover{background:#fff;transform:translateY(-1px)}
 .urgency-banner-close{background:none;border:none;color:rgba(255,255,255,0.4);font-size:18px;cursor:pointer;padding:0 4px;margin-left:8px;transition:color 0.2s}
 .urgency-banner-close:hover{color:#fff}
-body.has-banner .nav{top:46px}
-body.has-banner .hero{padding-top:166px}
+body.has-banner .nav{top:34px}
+body.has-banner .hero{padding-top:154px}
 
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 0;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-light)}
@@ -85,7 +85,8 @@ body.has-banner .hero{padding-top:166px}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
 .hero-title{font-family:var(--font-display);font-size:clamp(42px,5.5vw,72px);line-height:1.05;color:var(--text-primary);margin-bottom:24px;letter-spacing:-0.03em}
 .hero-title em{font-style:italic;color:var(--grad-purple)}
-.hero-subtitle{font-size:18px;color:var(--text-secondary);margin-bottom:40px;max-width:520px;line-height:1.7}
+.hero-subtitle{font-size:18px;color:var(--text-secondary);margin-bottom:16px;max-width:520px;line-height:1.7}
+.hero-price{font-family:var(--font-display);font-size:22px;color:var(--grad-purple);margin-bottom:40px;font-weight:400;letter-spacing:-0.01em}
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--grad-purple),var(--grad-violet));color:var(--white);padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;font-family:var(--font-body)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(102,126,234,0.35)}
@@ -294,7 +295,8 @@ body.has-banner .hero{padding-top:166px}
   .hero-badge{display:none}
   .hero-title{font-size:30px;margin-bottom:8px;line-height:1.1}
   .hero-title em{display:inline}
-  .hero-subtitle{font-size:15px;margin-bottom:16px;max-width:100%;line-height:1.5}
+  .hero-subtitle{font-size:15px;margin-bottom:8px;max-width:100%;line-height:1.5}
+  .hero-price{font-size:20px;margin-bottom:12px}
   .hero-subtitle br{display:none}
   .hero-content{display:flex;flex-direction:column}
   /* Hide CTA on mobile - songs sell the product, pricing is a scroll away */
@@ -314,12 +316,11 @@ body.has-banner .hero{padding-top:166px}
   .playlist-dur{font-size:11px}
   .mobile-connor-playlist{display:flex!important}
   /* Banner: single line, no CTA button on mobile, just text */
-  .urgency-banner{padding:8px 16px;gap:6px}
+  .urgency-banner{padding:6px 16px}
   .urgency-banner-text{font-size:12px}
   .urgency-banner-cta{display:none}
-  /* Properly stack: banner (approx 36px) then nav below it */
-  body.has-banner .nav{top:36px}
-  body.has-banner .hero{padding-top:116px}
+  body.has-banner .nav{top:30px}
+  body.has-banner .hero{padding-top:106px}
   /* Sections */
   .guarantee-section{padding:36px 20px}
   .guarantee-stamp{width:56px;height:56px;font-size:24px;margin-bottom:12px}
@@ -352,7 +353,7 @@ body.has-banner .hero{padding-top:166px}
   .steps-grid{grid-template-columns:1fr}
   .hero{padding:72px 16px 24px}
   .hero-title{font-size:26px}
-  body.has-banner .hero{padding-top:108px}
+  body.has-banner .hero{padding-top:100px}
 }
 </style>
 </head>
@@ -360,8 +361,7 @@ body.has-banner .hero{padding-top:166px}
 
 <!-- URGENCY BANNER -->
 <div class="urgency-banner" id="urgencyBanner">
-<span class="urgency-banner-text"><span class="hero-badge-pulse"></span> <strong>Limited Offer:</strong> Custom graduation songs from <strong>$49</strong>. 50% off for the <strong>next 14 orders</strong>.</span>
-<a href="#pricing" class="urgency-banner-cta">Claim Your Spot &darr;</a>
+<span class="urgency-banner-text">&#x1F393; Graduation songs starting at <strong>$49</strong></span>
 <button class="urgency-banner-close" onclick="closeBanner()">&#x2715;</button>
 </div>
 
@@ -391,7 +391,8 @@ body.has-banner .hero{padding-top:166px}
 <div class="hero-content">
 <div class="hero-badge"><span class="hero-badge-pulse"></span> &#x1F393; 2026 Graduation Season</div>
 <h1 class="hero-title">The graduation gift they'll <em>replay forever</em></h1>
-<p class="hero-subtitle">A custom song with your senior's name, memories, and inside jokes. Radio-quality. As fast as 24 hours. Starting at $49.</p>
+<p class="hero-subtitle">A 100% custom song with your senior's name, memories, and inside jokes. Radio-quality. As fast as 24 hours.</p>
+<p class="hero-price">Starting at $49</p>
 <div class="hero-actions">
 <a href="#pricing" class="btn-primary">&#x1F393;&nbsp; Create Their Song</a>
 </div>
