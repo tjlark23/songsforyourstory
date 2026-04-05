@@ -296,12 +296,11 @@ body.has-banner .hero{padding-top:166px}
   .hero-title em{display:inline}
   .hero-subtitle{font-size:15px;margin-bottom:16px;max-width:100%;line-height:1.5}
   .hero-subtitle br{display:none}
-  /* Move CTA below the songs on mobile */
   .hero-content{display:flex;flex-direction:column}
-  .hero-actions{order:10;margin-top:16px}
-  .btn-primary{padding:14px 24px;font-size:15px;width:100%}
+  /* Hide CTA on mobile - songs sell the product, pricing is a scroll away */
+  .hero-actions{display:none}
   .hero-proof{display:none}
-  /* Hide the big featured card, show playlist with all songs */
+  /* Show playlist with all songs */
   .demo-card{display:none}
   .hero-demos{margin-top:0;order:5}
   .playlist-section{margin-top:0;border-radius:12px;border:1px solid var(--border);overflow:hidden}
@@ -314,6 +313,13 @@ body.has-banner .hero{padding-top:166px}
   .playlist-meta{font-size:11px}
   .playlist-dur{font-size:11px}
   .mobile-connor-playlist{display:flex!important}
+  /* Banner: single line, no CTA button on mobile, just text */
+  .urgency-banner{padding:8px 16px;gap:6px}
+  .urgency-banner-text{font-size:12px}
+  .urgency-banner-cta{display:none}
+  /* Properly stack: banner (approx 36px) then nav below it */
+  body.has-banner .nav{top:36px}
+  body.has-banner .hero{padding-top:116px}
   /* Sections */
   .guarantee-section{padding:36px 20px}
   .guarantee-stamp{width:56px;height:56px;font-size:24px;margin-bottom:12px}
@@ -339,11 +345,6 @@ body.has-banner .hero{padding-top:166px}
   .mobile-menu-btn{display:block}
   .audio-player-info{min-width:auto}
   .audio-progress{display:none}
-  .urgency-banner{padding:8px 16px;gap:8px}
-  .urgency-banner-text{font-size:12px}
-  .urgency-banner-cta{font-size:11px;padding:5px 14px}
-  body.has-banner .hero{padding-top:120px}
-  body.has-banner .nav{top:38px}
 }
 /* Hide mobile-connor-playlist on desktop */
 .mobile-connor-playlist{display:none}
@@ -351,7 +352,7 @@ body.has-banner .hero{padding-top:166px}
   .steps-grid{grid-template-columns:1fr}
   .hero{padding:72px 16px 24px}
   .hero-title{font-size:26px}
-  body.has-banner .hero{padding-top:110px}
+  body.has-banner .hero{padding-top:108px}
 }
 </style>
 </head>
@@ -359,7 +360,7 @@ body.has-banner .hero{padding-top:166px}
 
 <!-- URGENCY BANNER -->
 <div class="urgency-banner" id="urgencyBanner">
-<span class="urgency-banner-text"><span class="hero-badge-pulse"></span> <strong>Limited Offer:</strong> 50% off all packages for the <strong>next 14 orders</strong>.</span>
+<span class="urgency-banner-text"><span class="hero-badge-pulse"></span> <strong>Limited Offer:</strong> Custom graduation songs from <strong>$49</strong>. 50% off for the <strong>next 14 orders</strong>.</span>
 <a href="#pricing" class="urgency-banner-cta">Claim Your Spot &darr;</a>
 <button class="urgency-banner-close" onclick="closeBanner()">&#x2715;</button>
 </div>
@@ -390,7 +391,7 @@ body.has-banner .hero{padding-top:166px}
 <div class="hero-content">
 <div class="hero-badge"><span class="hero-badge-pulse"></span> &#x1F393; 2026 Graduation Season</div>
 <h1 class="hero-title">The graduation gift they'll <em>replay forever</em></h1>
-<p class="hero-subtitle">A custom song with your senior's name, memories, and inside jokes. Radio-quality. As fast as 24 hours.</p>
+<p class="hero-subtitle">A custom song with your senior's name, memories, and inside jokes. Radio-quality. As fast as 24 hours. Starting at $49.</p>
 <div class="hero-actions">
 <a href="#pricing" class="btn-primary">&#x1F393;&nbsp; Create Their Song</a>
 </div>
