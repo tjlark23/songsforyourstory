@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You For Your Order | Songs For Your Story</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://songsforyourstory.com/thank-you-graduation">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1953487911921399');
+fbq('track', 'PageView');
+
+// Fire Purchase event with tier and value from URL params
+const params = new URLSearchParams(window.location.search);
+const value = params.get('value');
+const tier = params.get('tier');
+if (value) {
+  fbq('track', 'Purchase', {
+    value: parseFloat(value),
+    currency: 'USD',
+    content_name: tier || 'graduation',
+    content_type: 'product',
+    num_items: 1
+  });
+}
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1953487911921399&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<style>
+:root {
+  --coral: #E8654A; --coral-light: #FFF0ED; --sage: #3B7A6B; --sage-light: #EDF5F2;
+  --navy: #1E2A3A; --navy-light: #2D3E52; --gold: #C8942A; --plum: #6B4C8A;
+  --white: #FFFFFF; --off-white: #FAFAF8; --warm-bg: #F7F5F0;
+  --text-primary: #1A1A1A; --text-secondary: #5A5A5A; --text-muted: #8A8A8A;
+  --border: #E5E2DB; --border-light: #EEEAE3;
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08); --shadow-lg: 0 8px 32px rgba(0,0,0,0.1);
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --radius: 12px; --radius-lg: 16px;
+  --grad-purple: #667eea; --grad-violet: #764ba2;
+}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--white);color:var(--text-primary);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 0;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-light)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-display);font-size:22px;color:var(--text-primary);text-decoration:none}.nav-logo span{color:var(--coral)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s}.nav-links a:hover{color:var(--text-primary)}
+.nav-cta-link{background:var(--navy)!important;color:var(--white)!important;padding:10px 22px!important;border-radius:8px!important;font-weight:600!important;transition:all 0.2s!important}
+.nav-cta-link:hover{background:var(--navy-light)!important;transform:translateY(-1px)}
+
+/* THANK YOU CONTENT */
+.thank-you-section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 32px 80px;position:relative;overflow:hidden}
+.thank-you-section::before{content:'';position:absolute;top:-100px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(102,126,234,0.08) 0%,transparent 70%);pointer-events:none}
+.thank-you-section::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(118,75,162,0.06) 0%,transparent 70%);pointer-events:none}
+
+.thank-you-card{max-width:640px;width:100%;text-align:center;position:relative;z-index:1}
+
+.check-circle{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--sage-light));display:flex;align-items:center;justify-content:center;margin:0 auto 32px;animation:scaleIn 0.5s ease-out}
+.check-circle svg{width:40px;height:40px;color:var(--white)}
+
+.thank-you-heading{font-family:var(--font-display);font-size:clamp(36px,5vw,52px);line-height:1.1;color:var(--text-primary);margin-bottom:16px}
+.thank-you-heading .accent{color:var(--coral)}
+
+.thank-you-subtext{font-size:18px;color:var(--text-secondary);line-height:1.7;margin-bottom:40px;max-width:520px;margin-left:auto;margin-right:auto}
+
+.info-card{background:var(--warm-bg);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:32px;margin-bottom:32px;text-align:left}
+.info-card-title{font-family:var(--font-display);font-size:22px;margin-bottom:16px;color:var(--text-primary)}
+.info-steps{list-style:none;padding:0}
+.info-steps li{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:15px;color:var(--text-secondary);line-height:1.5}
+.info-steps li:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--grad-purple),var(--grad-violet));color:var(--white);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+.thank-you-cta{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:var(--white);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.2s;margin-top:8px}
+.thank-you-cta:hover{background:var(--navy-light);transform:translateY(-1px)}
+
+.thank-you-note{font-size:13px;color:var(--text-muted);margin-top:24px;line-height:1.6}
+
+/* FOOTER */
+.footer{background:var(--warm-bg);border-top:1px solid var(--border);padding:48px 32px}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:var(--font-display);font-size:18px;color:var(--text-primary);text-decoration:none}.footer-logo span{color:var(--coral)}
+.footer-links{display:flex;gap:24px}.footer-links a{color:var(--text-muted);text-decoration:none;font-size:13px;transition:color 0.2s}.footer-links a:hover{color:var(--text-secondary)}
+.footer-copy{font-size:13px;color:var(--text-muted)}
+
+/* ANIMATIONS */
+@keyframes scaleIn{0%{transform:scale(0);opacity:0}60%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+@keyframes fadeUp{0%{transform:translateY(20px);opacity:0}100%{transform:translateY(0);opacity:1}}
+.fade-up{animation:fadeUp 0.6s ease-out forwards;opacity:0}
+.fade-up-d1{animation-delay:0.15s}
+.fade-up-d2{animation-delay:0.3s}
+.fade-up-d3{animation-delay:0.45s}
+.fade-up-d4{animation-delay:0.6s}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .thank-you-section{padding:100px 20px 60px}
+  .info-card{padding:24px}
+  .footer-inner{flex-direction:column;gap:20px;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+<nav class="nav" aria-label="Main Navigation">
+<div class="nav-inner">
+<a href="https://songsforyourstory.com" class="nav-logo">Songs For Your <span>Story</span></a>
+<div class="nav-links">
+<a href="https://songsforyourstory.com/graduation">Graduation Songs</a>
+<a href="https://songsforyourstory.com/articles/">Blog</a>
+<a href="https://songsforyourstory.com" class="nav-cta-link">All Songs &#9835;</a>
+</div>
+</div>
+</nav>
+</header>
+
+<main>
+<section class="thank-you-section">
+<div class="thank-you-card">
+
+<div class="check-circle">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+</div>
+
+<h1 class="thank-you-heading fade-up fade-up-d1">You just made graduation <span class="accent">unforgettable.</span></h1>
+
+<p class="thank-you-subtext fade-up fade-up-d2">Your order is confirmed and our team is already getting to work on a custom song your graduate will never forget. This is going to be incredible.</p>
+
+<div class="info-card fade-up fade-up-d3">
+<h2 class="info-card-title">What happens next</h2>
+<ol class="info-steps">
+<li><span class="step-num">1</span>Check your inbox for a confirmation email from us within the next few hours.</li>
+<li><span class="step-num">2</span>We'll review the details you shared and start crafting your graduate's song.</li>
+<li><span class="step-num">3</span>Your finished song will be delivered as a high-quality MP3, ready to play at the party, add to a slideshow, or share with the whole family.</li>
+</ol>
+</div>
+
+<a href="https://songsforyourstory.com/graduation" class="thank-you-cta fade-up fade-up-d4">Order another song &#8594;</a>
+
+<p class="thank-you-note fade-up fade-up-d4">Questions? Reach out anytime at hello@songsforyourstory.com</p>
+
+</div>
+</section>
+</main>
+
+<footer class="footer">
+<div class="footer-inner">
+<a href="https://songsforyourstory.com" class="footer-logo">Songs For Your <span>Story</span></a>
+<div class="footer-links">
+<a href="https://songsforyourstory.com">Home</a>
+<a href="https://songsforyourstory.com/graduation">Graduation</a>
+<a href="https://songsforyourstory.com/articles/">Blog</a>
+<a href="mailto:hello@songsforyourstory.com">Contact</a>
+</div>
+<div class="footer-copy">&copy; 2026 Songs For Your Story. All rights reserved.</div>
+</div>
+</footer>
+
+</body>
+</html>
