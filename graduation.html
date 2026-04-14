@@ -778,7 +778,6 @@ function openForm(plan,price){
   document.body.style.overflow='hidden';
 }
 function closeForm(){document.getElementById('orderModal').classList.remove('active');document.body.style.overflow='';}
-document.getElementById('orderModal').addEventListener('click',function(e){if(e.target===this)closeForm();});
 
 async function submitOrder(e){
   e.preventDefault();
@@ -839,7 +838,6 @@ function togglePlaylistMore(){var m=document.getElementById('playlistMore');var 
 // Animations
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.animate-in').forEach(el=>obs.observe(el));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeForm();});
 </script>
 </body>
 </html>
