@@ -332,24 +332,29 @@ body {
 
 /* GRADUATION SEASONAL LINK */
 .nav-graduation {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 12px; border-radius: 999px;
-  background: var(--coral-soft); color: var(--coral-dark) !important;
+  display: inline-flex; align-items: center; gap: 7px;
+  color: var(--coral) !important;
   font-weight: 600;
-  transition: background 0.15s, color 0.15s;
+  position: relative;
+  padding-right: 12px;
+  transition: color 0.15s;
 }
-.nav-graduation:hover {
-  background: var(--coral); color: var(--paper) !important;
+.nav-graduation:hover { color: var(--coral-dark) !important; }
+.nav-grad-icon {
+  width: 16px; height: 16px;
+  flex-shrink: 0;
 }
-.nav-pill-season {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
-  padding: 2px 6px; border-radius: 4px;
-  background: rgba(232, 93, 60, 0.2);
-  color: var(--coral-dark);
+.nav-grad-pulse {
+  position: absolute; top: 2px; right: 0;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--coral);
+  box-shadow: 0 0 0 0 rgba(232, 93, 60, 0.6);
+  animation: gradPulse 2s infinite;
 }
-.nav-graduation:hover .nav-pill-season {
-  background: rgba(250, 248, 242, 0.25); color: var(--paper);
+@keyframes gradPulse {
+  0% { box-shadow: 0 0 0 0 rgba(232, 93, 60, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(232, 93, 60, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(232, 93, 60, 0); }
 }
 
 /* HERO STATS BAR */
@@ -824,8 +829,8 @@ body {
 @media (max-width: 700px) {
   .nav-links { gap: 20px; }
   .nav-links a:not(.nav-cta):not(.nav-graduation) { display: none; }
-  .nav-graduation { padding: 5px 10px; font-size: 13px; }
-  .nav-pill-season { display: none; }
+  .nav-graduation { font-size: 13px; gap: 5px; }
+  .nav-grad-icon { width: 14px; height: 14px; }
   .top-strip { padding: 8px 16px; }
   .top-strip-text { font-size: 11.5px; line-height: 1.35; }
   .top-strip-text a { display: inline-block; margin-top: 2px; }
@@ -865,7 +870,11 @@ body {
       <a href="#occasions">Occasions</a>
       <a href="#pricing">Pricing</a>
       <a href="/articles">Articles</a>
-      <a href="/graduation" class="nav-graduation">Graduation <span class="nav-pill-season">2026</span></a>
+      <a href="/graduation" class="nav-graduation">
+        <svg class="nav-grad-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"></path></svg>
+        Graduation
+        <span class="nav-grad-pulse" aria-hidden="true"></span>
+      </a>
       <button class="nav-cta" onclick="scrollToPricing()">
         Order Song
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
