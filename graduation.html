@@ -1499,15 +1499,32 @@ details.faq-item[open] .faq-icon { transform: rotate(45deg); }
 
   async function handleOrder(e) {
     e.preventDefault();
-    const name = document.getElementById('orderName').value;
-    const email = document.getElementById('orderEmail').value;
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.textContent : '';
+    const name = document.getElementById('orderName').value.trim();
+    const email = document.getElementById('orderEmail').value.trim();
     const tierText = document.getElementById('modalSelected').textContent;
+    const tier = tierText.split('·')[0].trim().replace(/^The\s+/i, '').toLowerCase();
 
     if (window.fbq) fbq('track', 'AddPaymentInfo', { content_name: tierText });
 
-    // TODO: wire to /api/create-checkout-session
-    // See songs-automation-playbook.md for full Stripe + GHL integration spec
-    alert(`TODO: Wire Stripe + GHL.\n\nName: ${name}\nEmail: ${email}\nTier: ${tierText}`);
+    if (submitBtn) { submitBtn.textContent = 'Redirecting to secure checkout…'; submitBtn.disabled = true; }
+
+    try {
+      const resp = await fetch('https://api.songsforyourstory.com/begin-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, tier })
+      });
+      if (!resp.ok) throw new Error('Checkout creation failed (' + resp.status + ')');
+      const data = await resp.json();
+      if (!data.url) throw new Error('No checkout URL returned');
+      window.location.href = data.url;
+    } catch (err) {
+      console.error('Order failed:', err);
+      if (submitBtn) { submitBtn.textContent = originalBtnText; submitBtn.disabled = false; }
+      alert("Something went wrong starting checkout. Please try again, or email hello@songsforyourstory.com and we'll take your order manually.");
+    }
   }
 </script>
 

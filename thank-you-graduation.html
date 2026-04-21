@@ -83,11 +83,32 @@ body{font-family:var(--font-body);background:var(--white);color:var(--text-prima
 .thank-you-subtext{font-size:18px;color:var(--text-secondary);line-height:1.7;margin-bottom:40px;max-width:520px;margin-left:auto;margin-right:auto}
 
 .info-card{background:var(--warm-bg);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:32px;margin-bottom:32px;text-align:left}
-.info-card-title{font-family:var(--font-display);font-size:22px;margin-bottom:16px;color:var(--text-primary)}
+.info-card-title{font-family:var(--font-display);font-size:28px;margin-bottom:8px;color:var(--text-primary)}
+.info-card-sub{font-size:15px;color:var(--text-secondary);margin-bottom:24px;line-height:1.6}
 .info-steps{list-style:none;padding:0}
 .info-steps li{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:15px;color:var(--text-secondary);line-height:1.5}
 .info-steps li:last-child{margin-bottom:0}
 .step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--grad-purple),var(--grad-violet));color:var(--white);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* INTAKE FORM */
+.intake-form{display:flex;flex-direction:column;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:13px;font-weight:600;color:var(--text-primary);letter-spacing:0.02em}
+.field label .req{color:var(--coral)}
+.field label .opt{color:var(--text-muted);font-weight:400;font-size:12px}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-family:var(--font-body);font-size:15px;color:var(--text-primary);background:var(--white);transition:border-color 0.15s,box-shadow 0.15s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--sage);box-shadow:0 0 0 3px rgba(59,122,107,0.15)}
+.field textarea{resize:vertical;min-height:110px;line-height:1.5}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:520px){.field-row{grid-template-columns:1fr}}
+.intake-submit{background:var(--navy);color:var(--white);border:none;padding:16px 32px;border-radius:8px;font-family:var(--font-body);font-size:15px;font-weight:600;cursor:pointer;transition:all 0.2s;margin-top:8px}
+.intake-submit:hover:not(:disabled){background:var(--navy-light);transform:translateY(-1px)}
+.intake-submit:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+.intake-note{font-size:13px;color:var(--text-muted);margin-top:8px;line-height:1.5}
+.success-panel{background:var(--sage-light);border:1px solid var(--sage);border-radius:var(--radius-lg);padding:32px;text-align:left;display:none}
+.success-panel.visible{display:block}
+.success-panel h2{font-family:var(--font-display);font-size:28px;margin-bottom:12px;color:var(--sage)}
+.error-msg{color:var(--coral);font-size:14px;margin-top:8px}
 
 .thank-you-cta{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:var(--white);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.2s;margin-top:8px}
 .thank-you-cta:hover{background:var(--navy-light);transform:translateY(-1px)}
@@ -144,22 +165,130 @@ body{font-family:var(--font-body);background:var(--white);color:var(--text-prima
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
 </div>
 
-<h1 class="thank-you-heading fade-up fade-up-d1">You just made graduation <span class="accent">unforgettable.</span></h1>
+<h1 class="thank-you-heading fade-up fade-up-d1">Payment confirmed. Now tell us about <span class="accent">your graduate.</span></h1>
 
-<p class="thank-you-subtext fade-up fade-up-d2">Your order is confirmed and our team is already getting to work on a custom song your graduate will never forget. This is going to be incredible.</p>
+<p class="thank-you-subtext fade-up fade-up-d2">The more you share — nicknames, inside jokes, where they're headed — the more incredible the song. Takes about 3 minutes. Your delivery clock starts the moment you submit.</p>
 
-<div class="info-card fade-up fade-up-d3">
-<h2 class="info-card-title">What happens next</h2>
+<div class="info-card fade-up fade-up-d3" id="intakeCard">
+<h2 class="info-card-title">Graduate intake</h2>
+<p class="info-card-sub">Everything you share here goes straight to the songwriter. Be specific.</p>
+<form id="intakeForm" class="intake-form" onsubmit="handleIntake(event)">
+  <div class="field">
+    <label for="graduate_name">Graduate's full name <span class="req">*</span></label>
+    <input type="text" id="graduate_name" name="graduate_name" required placeholder="What should we call them in the song?">
+  </div>
+  <div class="field-row">
+    <div class="field">
+      <label for="graduate_school">School / program <span class="opt">(optional)</span></label>
+      <input type="text" id="graduate_school" name="graduate_school" placeholder="e.g. Central High, UT Austin, trade school">
+    </div>
+    <div class="field">
+      <label for="graduation_date">Graduation date <span class="opt">(optional)</span></label>
+      <input type="date" id="graduation_date" name="graduation_date">
+    </div>
+  </div>
+  <div class="field">
+    <label for="graduate_destination">What's next for them? <span class="opt">(optional)</span></label>
+    <input type="text" id="graduate_destination" name="graduate_destination" placeholder="College, trade school, military, a job, a gap year…">
+  </div>
+  <div class="field-row">
+    <div class="field">
+      <label for="song_vibe">Vibe <span class="req">*</span></label>
+      <select id="song_vibe" name="song_vibe" required>
+        <option value="">Pick one…</option>
+        <option>Upbeat</option>
+        <option>Emotional</option>
+        <option>High-Energy</option>
+        <option>Funny</option>
+        <option>Inspiring</option>
+        <option>Nostalgic</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="preferred_genre">Genre <span class="req">*</span></label>
+      <select id="preferred_genre" name="preferred_genre" required>
+        <option value="">Pick one…</option>
+        <option>Pop</option>
+        <option>Country</option>
+        <option>Hip-Hop</option>
+        <option>R&amp;B</option>
+        <option>Acoustic</option>
+        <option>EDM</option>
+        <option>Ballad</option>
+        <option>Singer-Songwriter</option>
+        <option>Other</option>
+      </select>
+    </div>
+  </div>
+  <div class="field">
+    <label for="song_details">Tell us about them <span class="req">*</span></label>
+    <textarea id="song_details" name="song_details" required placeholder="Nicknames. Inside jokes. Specific memories. What makes them, them. What do you want this song to capture? The more you share, the better the song."></textarea>
+  </div>
+  <div class="field">
+    <label for="specific_lyrics">Any specific lyrics, phrases, or references you want included? <span class="opt">(optional)</span></label>
+    <textarea id="specific_lyrics" name="specific_lyrics" placeholder="Quotes, team names, pet names, song titles they love, favorite sayings…"></textarea>
+  </div>
+  <button type="submit" class="intake-submit">Submit intake &#8594;</button>
+  <p class="intake-note">Something not working? Just reply to your receipt email — we'll take the details manually.</p>
+  <p id="intakeError" class="error-msg" style="display:none"></p>
+</form>
+</div>
+
+<div class="info-card success-panel fade-up fade-up-d3" id="successPanel">
+<h2>You're all set.</h2>
 <ol class="info-steps">
-<li><span class="step-num">1</span>Check your inbox for a confirmation email from us within the next few hours.</li>
-<li><span class="step-num">2</span>We'll review the details you shared and start crafting your graduate's song.</li>
-<li><span class="step-num">3</span>Your finished song will be delivered as a high-quality MP3, ready to play at the party, add to a slideshow, or share with the whole family.</li>
+<li><span class="step-num">1</span>Your intake just landed in our production queue. You'll get an email within a few hours.</li>
+<li><span class="step-num">2</span>We review the details, then start crafting your graduate's song.</li>
+<li><span class="step-num">3</span>Finished MP3 arrives in your inbox — ready for the party, the slideshow, or whoever needs to hear it first.</li>
 </ol>
 </div>
 
 <a href="https://songsforyourstory.com/graduation" class="thank-you-cta fade-up fade-up-d4">Order another song &#8594;</a>
 
 <p class="thank-you-note fade-up fade-up-d4">Questions? Reach out anytime at hello@songsforyourstory.com</p>
+
+<script>
+async function handleIntake(e) {
+  e.preventDefault();
+  const form = document.getElementById('intakeForm');
+  const btn = form.querySelector('button[type="submit"]');
+  const errEl = document.getElementById('intakeError');
+  errEl.style.display = 'none';
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Submitting…';
+
+  const params = new URLSearchParams(window.location.search);
+  const session_id = params.get('session_id');
+  if (!session_id) {
+    errEl.textContent = 'Missing session reference. Please email hello@songsforyourstory.com with your order details.';
+    errEl.style.display = 'block';
+    btn.disabled = false; btn.textContent = originalText;
+    return;
+  }
+
+  const payload = Object.fromEntries(new FormData(form).entries());
+  payload.session_id = session_id;
+
+  try {
+    const resp = await fetch('https://api.songsforyourstory.com/submit-intake', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!resp.ok) throw new Error('Submit failed (' + resp.status + ')');
+    document.getElementById('intakeCard').style.display = 'none';
+    document.getElementById('successPanel').classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (err) {
+    console.error(err);
+    errEl.textContent = "Something went wrong submitting the form. Please try again, or email hello@songsforyourstory.com with these details.";
+    errEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+</script>
 
 </div>
 </section>
