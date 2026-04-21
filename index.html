@@ -300,33 +300,57 @@ body {
 .hero-trust-item { display: inline-flex; align-items: center; gap: 6px; }
 .hero-trust-item svg { width: 14px; height: 14px; color: var(--sage); }
 
-/* COMPACT GUARANTEE STRIP (early in page) */
-.guarantee-strip {
-  background: var(--sage-soft);
-  border-top: 1px solid rgba(109, 136, 113, 0.25);
-  border-bottom: 1px solid rgba(109, 136, 113, 0.25);
-  padding: 20px 0;
+/* TOP GUARANTEE STRIP (above nav, persistent trust signal) */
+.top-strip {
+  background: var(--sage);
+  color: var(--paper);
+  padding: 9px 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
-.guarantee-strip-inner {
+.top-strip-inner {
+  max-width: 1200px; margin: 0 auto;
   display: flex; align-items: center; justify-content: center;
-  gap: 16px; max-width: 920px; margin: 0 auto; text-align: center;
+  gap: 10px; text-align: center;
 }
-.guarantee-strip-icon {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: var(--sage); color: var(--paper);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
+.top-strip-icon {
+  width: 16px; height: 16px;
+  color: var(--gold-soft); flex-shrink: 0;
 }
-.guarantee-strip-icon svg { width: 18px; height: 18px; }
-.guarantee-strip-text {
-  font-size: 14px; color: #2e4a32; line-height: 1.5;
+.top-strip-text {
+  font-size: 13px; line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: rgba(250, 248, 242, 0.95);
 }
-.guarantee-strip-text strong { color: #1e3322; font-weight: 600; }
-.guarantee-strip-text a {
-  color: var(--sage); font-weight: 600; text-decoration: none;
-  white-space: nowrap;
+.top-strip-text strong {
+  color: var(--paper); font-weight: 600;
 }
-.guarantee-strip-text a:hover { text-decoration: underline; }
+.top-strip-text a {
+  color: var(--gold-soft); font-weight: 600; text-decoration: none;
+  white-space: nowrap; margin-left: 4px;
+}
+.top-strip-text a:hover { text-decoration: underline; }
+
+/* GRADUATION SEASONAL LINK */
+.nav-graduation {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px; border-radius: 999px;
+  background: var(--coral-soft); color: var(--coral-dark) !important;
+  font-weight: 600;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-graduation:hover {
+  background: var(--coral); color: var(--paper) !important;
+}
+.nav-pill-season {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
+  padding: 2px 6px; border-radius: 4px;
+  background: rgba(232, 93, 60, 0.2);
+  color: var(--coral-dark);
+}
+.nav-graduation:hover .nav-pill-season {
+  background: rgba(250, 248, 242, 0.25); color: var(--paper);
+}
 
 /* HERO STATS BAR */
 .stats-bar {
@@ -799,7 +823,12 @@ body {
 }
 @media (max-width: 700px) {
   .nav-links { gap: 20px; }
-  .nav-links a:not(.nav-cta) { display: none; }
+  .nav-links a:not(.nav-cta):not(.nav-graduation) { display: none; }
+  .nav-graduation { padding: 5px 10px; font-size: 13px; }
+  .nav-pill-season { display: none; }
+  .top-strip { padding: 8px 16px; }
+  .top-strip-text { font-size: 11.5px; line-height: 1.35; }
+  .top-strip-text a { display: inline-block; margin-top: 2px; }
   .hero { padding: 48px 0 40px; }
   .hero-player { padding: 24px 20px; }
   .player-controls { gap: 10px; }
@@ -818,6 +847,16 @@ body {
 </head>
 <body>
 
+<!-- TOP GUARANTEE STRIP (above nav) -->
+<div class="top-strip">
+  <div class="top-strip-inner">
+    <svg class="top-strip-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+    <span class="top-strip-text">
+      The <strong>&ldquo;Love It&rdquo; Guarantee</strong> &mdash; Every song includes revisions. If we can&apos;t capture the story, we refund in full. <a href="#faq">How it works &rarr;</a>
+    </span>
+  </div>
+</div>
+
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="logo">Songs For Your <em>Story</em></a>
@@ -826,6 +865,7 @@ body {
       <a href="#occasions">Occasions</a>
       <a href="#pricing">Pricing</a>
       <a href="/articles">Articles</a>
+      <a href="/graduation" class="nav-graduation">Graduation <span class="nav-pill-season">2026</span></a>
       <button class="nav-cta" onclick="scrollToPricing()">
         Order Song
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -897,20 +937,6 @@ body {
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
           100% custom & original
         </span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMPACT GUARANTEE STRIP -->
-<section class="guarantee-strip">
-  <div class="container">
-    <div class="guarantee-strip-inner">
-      <div class="guarantee-strip-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-      </div>
-      <div class="guarantee-strip-text">
-        <strong>The Love It Guarantee.</strong> Every song includes revisions. If we can't capture the story, we refund in full. <a href="#faq">How it works →</a>
       </div>
     </div>
   </div>
@@ -1224,7 +1250,7 @@ body {
 
     <div class="pricing-fineprint">
       <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Secure Stripe checkout</span>
-      <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Love It Guarantee</span>
+      <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> &ldquo;Love It&rdquo; Guarantee</span>
       <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Revisions included every tier</span>
     </div>
   </div>
@@ -1237,7 +1263,7 @@ body {
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
     </div>
     <div>
-      <h3 class="guarantee-title">The Love It Guarantee.</h3>
+      <h3 class="guarantee-title">The &ldquo;Love It&rdquo; Guarantee.</h3>
       <p class="guarantee-text">Every song comes with <strong>revisions included</strong>. We'll keep refining the lyrics, tone, and production until it captures the story the way you imagined. If we've exhausted revisions and still haven't nailed it, we'll <strong>refund your order in full</strong>. No awkward emails. No hoops.</p>
     </div>
   </div>
@@ -1449,7 +1475,7 @@ songs.forEach((s, i) => {
   songListEl.appendChild(item);
 });
 
-function loadAndPlay(index) {
+function loadAndPlay(index, opts = {}) {
   currentSong = index;
   const song = songs[index];
   document.getElementById('heroSongTitle').textContent = song.title;
@@ -1458,9 +1484,21 @@ function loadAndPlay(index) {
   document.querySelectorAll('.genre-pill').forEach((p, i) => {
     p.classList.toggle('active', parseInt(p.dataset.song) === index);
   });
-  const activePill = document.querySelector('.genre-pill.active');
-  if (activePill && activePill.scrollIntoView) {
-    activePill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+  // Only scroll the active pill into horizontal view inside the genre-switcher,
+  // never scroll the page itself. Skip entirely unless user clicked a pill.
+  if (opts.scrollPillIntoView) {
+    const activePill = document.querySelector('.genre-pill.active');
+    const switcher = document.getElementById('genreSwitcher');
+    if (activePill && switcher) {
+      const pillRect = activePill.getBoundingClientRect();
+      const switcherRect = switcher.getBoundingClientRect();
+      if (pillRect.left < switcherRect.left || pillRect.right > switcherRect.right) {
+        switcher.scrollTo({
+          left: activePill.offsetLeft - (switcher.clientWidth / 2) + (activePill.clientWidth / 2),
+          behavior: 'smooth'
+        });
+      }
+    }
   }
 
   document.querySelectorAll('.song-item').forEach((item, i) => item.classList.toggle('playing', i === index));
@@ -1486,7 +1524,7 @@ document.getElementById('heroPlayBtn').addEventListener('click', () => {
 });
 
 document.querySelectorAll('.genre-pill').forEach(pill => {
-  pill.addEventListener('click', () => loadAndPlay(parseInt(pill.dataset.song)));
+  pill.addEventListener('click', () => loadAndPlay(parseInt(pill.dataset.song), { scrollPillIntoView: true }));
 });
 
 const genreSwitcher = document.getElementById('genreSwitcher');
