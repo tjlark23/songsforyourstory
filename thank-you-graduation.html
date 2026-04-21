@@ -220,9 +220,33 @@ body{font-family:var(--font-body);background:var(--white);color:var(--text-prima
       </select>
     </div>
   </div>
+  <div class="field-row">
+    <div class="field">
+      <label for="vocal_preference">Vocal preference</label>
+      <select id="vocal_preference" name="vocal_preference">
+        <option>Male vocals</option>
+        <option>Female vocals</option>
+        <option selected>Either (you pick)</option>
+        <option>Duet (both)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="energy_level">Energy level</label>
+      <select id="energy_level" name="energy_level">
+        <option>Slow &amp; emotional</option>
+        <option>Medium &amp; steady</option>
+        <option selected>Upbeat &amp; celebratory</option>
+        <option>High-energy &amp; party</option>
+      </select>
+    </div>
+  </div>
   <div class="field">
     <label for="song_details">Tell us about them <span class="req">*</span></label>
     <textarea id="song_details" name="song_details" required placeholder="Nicknames. Inside jokes. Specific memories. What makes them, them. What do you want this song to capture? The more you share, the better the song."></textarea>
+  </div>
+  <div class="field">
+    <label for="reference_songs">Any reference songs or artists? <span class="opt">(Optional — artists, songs, or styles you love that could inspire the vibe)</span></label>
+    <textarea id="reference_songs" name="reference_songs" rows="3" placeholder="e.g. Luke Combs, Morgan Wallen, mellow acoustic vibes like The Lumineers"></textarea>
   </div>
   <div class="field">
     <label for="specific_lyrics">Any specific lyrics, phrases, or references you want included? <span class="opt">(optional)</span></label>
